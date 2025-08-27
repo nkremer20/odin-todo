@@ -1,3 +1,7 @@
-const test = document.createElement('p');
-test.textContent = 'TEST';
-document.body.appendChild(test);
+import './styles.css';
+import { homeScreen } from './home-screen';
+import { processForm } from './tasks';
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', processForm)
