@@ -60,8 +60,43 @@ h1, h2, h3, h4, h5, h6, p, button {
     align-items: center;
 }
 
+#new-task-dialog {
+    border: none;
+    border-radius: 10px;
+    min-width: 500px;
+}
+
 form {
+    font-family: Roboto;
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+.task-params {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    gap: 5px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+select {
+    width: 100px;
+}
+
+form button {
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    background-color: #cb8500;
+    color: white;
+    padding: 10px;
+}
+
+.submit-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

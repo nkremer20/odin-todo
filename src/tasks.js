@@ -1,3 +1,16 @@
+class Project {
+    constructor(projectName, description, status) {
+        this.projectName = projectName;
+        this.description = description;
+        this.status = status;
+        this.createdAt = new Date().toISOString();
+        this.closedAt = null;
+        this._id = crypto.randomUUID();
+    };
+
+
+}
+
 class Task {
     constructor(taskName, dueDate, priority) {
         this.taskName = taskName;
@@ -6,9 +19,15 @@ class Task {
         this.id = crypto.randomUUID();
     };
 
-    createTask() {
+    // Saves task to local storage
+    save() {
         const taskJson = JSON.stringify(this);
-        console.log(taskJson);
+
+    }
+
+    // Gets all tasks from local storage
+    static getAllTasks() {
+        
     }
 
 }
@@ -27,7 +46,16 @@ function processForm(event) {
     }
 
     const newTask = new Task(taskData[0], taskData[1], taskData[2]);
-    newTask.createTask();
+    newTask.save();
+
+    console.log(newTask);
+
+    form.reset();
+}
+
+function createTaskCard (task) {
+    const todoContainer = document.querySelector('.todo-container');
+
 }
 
 export { processForm };
