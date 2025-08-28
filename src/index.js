@@ -9,6 +9,13 @@ addTaskBtn.addEventListener('click', () => {
     addTaskDialog.showModal();
 })
 
+// Logic to close modal
+const closeModalBtn = document.querySelector('.close-dialog');
+closeModalBtn.addEventListener('click', () => {
+    addTaskDialog.close();
+    form.reset();
+})
+
 // Listner to check for form new task form submission
 const form = document.querySelector('form');
 form.addEventListener('submit', processForm);
