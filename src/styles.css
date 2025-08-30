@@ -9,6 +9,7 @@ html, body {
     width: 100vw;
     min-height: 100dvh;
     font-family: Roboto;
+    overflow-y: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, p, button {
@@ -28,6 +29,8 @@ button {
     flex-direction: column;
     background-color: #fcf9f8;
     padding: 20px;
+    position: sticky;
+    left: 0;
 }
 
 .user-info {
@@ -58,31 +61,21 @@ button {
 
 .todo-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    justify-content: start;
+    gap: 10px;
+    padding-left: 20px;
+    margin-right: 20px;
 }
 
 #new-task-dialog {
-    padding-top: 5px;
     border: none;
     border-radius: 10px;
     min-width: 500px;
 }
 
-.dialog-container {
-    display: flex;
-    flex-direction: column;
-}
-
 .close-dialog {
-    align-self: end;
-    margin-bottom: 5px;
-    border: none;
-    border-radius: 50%;
     background-color: rgba(255, 0, 0, 0.465);
-    height: 25px;
-    width: 25px;
 }
 
 form {
@@ -94,7 +87,7 @@ form {
 
 .task-params {
     display: grid;
-    grid-template-columns: repeat(2, 100px);
+    grid-template-columns: repeat(2, 125px);
     gap: 5px;
     border-bottom: 1px solid gray;
     padding-bottom: 10px;
@@ -102,7 +95,7 @@ form {
 }
 
 select {
-    width: 100px;
+    width: 125px;
 }
 
 form button {
@@ -118,4 +111,21 @@ form button {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.project-card {
+    width: 300px;
+    height: fit-content;
+    background-color: rgb(201, 201, 201);
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-top: 5px solid green;
+    display: flex;
+    justify-content: center;
+}
+
+.project-name {
+    font-weight: 500;
+    font-size: 20px;
 }

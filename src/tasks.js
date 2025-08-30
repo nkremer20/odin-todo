@@ -1,61 +1,137 @@
 class Project {
-    constructor(projectName, description, status) {
+    constructor(projectName, status='Not Started') {
         this.projectName = projectName;
-        this.description = description;
         this.status = status;
-        this.createdAt = new Date().toISOString();
-        this.closedAt = null;
-        this._id = crypto.randomUUID();
-    };
+    }
 
-
-}
-
-class Task {
-    constructor(taskName, dueDate, priority) {
-        this.taskName = taskName;
-        this.dueDate = dueDate;
-        this.priority = priority;
-        this.id = crypto.randomUUID();
-    };
-
-    // Saves task to local storage
     save() {
-        const taskJson = JSON.stringify(this);
+        const projects = Project.getAllProjects();
 
+        projects[this.projectName] = {
+            status: this.status,
+            tasks: {}
+        }
+
+        console.log(projects);
+        localStorage.setItem('projects', JSON.stringify(projects));
     }
 
-    // Gets all tasks from local storage
-    static getAllTasks() {
-        
-    }
+    static getAllProjects() {
+        const projects = localStorage.getItem('projects');
 
-}
-
-function processForm(event) {
-    event.preventDefault();
-    const form = document.querySelector('form');
-
-    let taskData = [];
-
-    for (let i = 0; i < form.elements.length; i++) {
-        let element = form.elements[i];
-        if (element.type !== 'submit') {
-            taskData[i] = element.value;
+        if (!projects) {
+            console.log('No projects');
+            return {};
+        } else {
+            return JSON.parse(projects);
         }
     }
-
-    const newTask = new Task(taskData[0], taskData[1], taskData[2]);
-    newTask.save();
-
-    console.log(newTask);
-
-    form.reset();
 }
 
-function createTaskCard (task) {
-    const todoContainer = document.querySelector('.todo-container');
 
-}
 
-export { processForm };
+export { Project }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// class Project {
+//     constructor(projectName, status='Not Started') {
+//         this.projectName = projectName;
+//         this.status = status;
+//         this._id = crypto.randomUUID();
+//         this.tasks = {};
+//     };
+
+
+// }
+
+// class Task {
+//     constructor(taskName, dueDate, priority) {
+//         this.taskName = taskName;
+//         this.dueDate = dueDate;
+//         this.priority = priority;
+//         this.id = crypto.randomUUID();
+//     };
+
+//     // Saves task to local storage
+//     save() {
+//         const taskJson = JSON.stringify(this);
+//         const tasks = Task.getAllTasks();
+//         console.log('saved task')
+//     }
+
+//     // Gets all tasks from local storage
+//     static getAllTasks() {
+//         const projects = localStorage.getItem('project');
+//         if (!projects) {
+//             console.log('No projects')
+//             return [];
+//         } else {
+//             console.log(projects)
+//             return JSON.parse(projects);
+//         }
+//     }
+
+// }
+
+// function processForm(event) {
+//     event.preventDefault();
+//     const form = document.querySelector('form');
+
+//     let taskData = [];
+
+//     for (let i = 0; i < form.elements.length; i++) {
+//         let element = form.elements[i];
+//         if (element.type !== 'submit') {
+//             taskData[i] = element.value;
+//         }
+//     }
+
+//     const newTask = new Task(taskData[0], taskData[1], taskData[2]);
+//     newTask.save();
+
+//     form.reset();
+
+//     const addTaskDialog = document.querySelector('#new-task-dialog');
+//     addTaskDialog.close();
+// }
+
+// function createTaskCard (task) {
+//     const todoContainer = document.querySelector('.todo-container');
+
+// }
+
+// export { processForm };

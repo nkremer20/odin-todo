@@ -1,6 +1,6 @@
 import './styles.css';
 import { homeScreen } from './home-screen';
-import { processForm } from './tasks';
+import { Project } from './tasks';
 
 // Logic for new task modal
 const addTaskDialog = document.querySelector('#new-task-dialog');
@@ -16,7 +16,7 @@ closeModalBtn.addEventListener('click', () => {
     form.reset();
 })
 
-// Listner to check for form new task form submission
-const form = document.querySelector('form');
-form.addEventListener('submit', processForm);
+// // Listner to check for form new task form submission
+// const form = document.querySelector('form');
+// form.addEventListener('submit', processForm);
 

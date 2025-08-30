@@ -19,26 +19,30 @@
     <div class="todo-container">
         <dialog id="new-task-dialog">
             <div class="dialog-container">
-                <button class="close-dialog">x</button>
                 <form action="#">
-                    <textarea name="task-name" id="task-name" placeholder="Task Name"></textarea>
+                    <textarea name="task-name" id="task-name" placeholder="Task Name" required></textarea>
                     <div class="task-params">
-                        <input type="date" name="due-date" id="due-date" placeholder="Due Date">
-                        <input type="text" name="priority" id="priority" placeholder="Priority">
+                        <input type="date" name="due-date" id="due-date" placeholder="Due Date" required>
+                        <input type="text" name="priority" id="priority" placeholder="Priority" required>
                     </div>
                     <div class="submit-section">
                         <select id="projects" name="favorite_fruit">
-                        <option value="apple">Apple</option>
-                        <option value="banana">Banana</option>
-                        <option value="orange">Orange</option>
-                        <option value="grape">Grape</option>
-                    </select>
-                    <button type="submit">Add Task</button>
+                            <option value="apple">Apple</option>
+                            <option value="banana">Banana</option>
+                            <option value="orange">Orange</option>
+                            <option value="grape">Grape</option>
+                        </select>
+                        <div class="submit-cancel">
+                            <button class="close-dialog">Cancel</button>
+                        <button type="submit">Add Task</button>
+                        </div>
                     </div>
                 </form>
             </div>
-
         </dialog>
+        <div class="project-card">
+            <h1 class="project-name">Project</h1>
+        </div>
     </div>
 </body>
 </html>
