@@ -20,3 +20,4 @@ closeModalBtn.addEventListener('click', () => {
 // const form = document.querySelector('form');
 // form.addEventListener('submit', processForm);
 
+const projects = Project.getAllProjects();

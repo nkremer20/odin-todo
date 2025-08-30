@@ -4,6 +4,7 @@ class Project {
         this.status = status;
     }
 
+    // Save new project
     save() {
         const projects = Project.getAllProjects();
 
@@ -13,6 +14,17 @@ class Project {
         }
 
         console.log(projects);
+        localStorage.setItem('projects', JSON.stringify(projects));
+    }
+
+    // Delete existing project
+    delete(projectName) {
+        const projects = Project.getAllProjects();
+
+        delete projects[projectName];
+
+        console.log(`Remaining projects: ${JSON.stringify(projects)}`)
+
         localStorage.setItem('projects', JSON.stringify(projects));
     }
 
