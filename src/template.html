@@ -12,11 +12,23 @@
             </div>
             <h1>John Doe</h1>
         </div>
+        <button class="create-prj-button">Create Project</button>
         <button class="add-task-btn">Add Task</button>
         <button>Today</button>
         <button>Upcoming</button>
     </div>
     <div class="todo-container">
+        <dialog id="new-prj-dialog">
+            <form action="#">
+                <textarea name="project-name" id="project-name"></textarea>
+                <select id="status" name="status">
+                    <option value="not-started">Not Started</option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </form>
+        </dialog>
+
         <dialog id="new-task-dialog">
             <div class="dialog-container">
                 <form action="#">

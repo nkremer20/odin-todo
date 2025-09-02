@@ -2,13 +2,15 @@ class Project {
     constructor(projectName, status='Not Started') {
         this.projectName = projectName;
         this.status = status;
+        this.id = crypto.randomUUID();
     }
 
     // Save new project
     save() {
         const projects = Project.getAllProjects();
 
-        projects[this.projectName] = {
+        projects[this.id] = {
+            projectName: this.projectName, 
             status: this.status,
             tasks: {}
         }

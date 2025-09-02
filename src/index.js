@@ -22,4 +22,4 @@ closeModalBtn.addEventListener('click', () => {
 
 // const projects = Project.getAllProjects();
 
-Project.updateStatus('Test project 2');
+// Event listener for creating a new project
