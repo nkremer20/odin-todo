@@ -23,7 +23,14 @@ class Project {
 
         delete projects[projectName];
 
-        console.log(`Remaining projects: ${JSON.stringify(projects)}`)
+        localStorage.setItem('projects', JSON.stringify(projects));
+    }
+
+    // Update project status
+    static updateStatus(projectName) {
+        const projects = Project.getAllProjects();
+
+        projects[projectName]['status'] = 'completed';
 
         localStorage.setItem('projects', JSON.stringify(projects));
     }
