@@ -23,3 +23,6 @@ closeModalBtn.addEventListener('click', () => {
 // const projects = Project.getAllProjects();
 
 // Event listener for creating a new project
+
+
+

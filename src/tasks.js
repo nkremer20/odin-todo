@@ -20,19 +20,20 @@ class Project {
     }
 
     // Delete existing project
-    delete(projectName) {
+    static delete(id) {
         const projects = Project.getAllProjects();
 
-        delete projects[projectName];
+        delete projects[id];
 
         localStorage.setItem('projects', JSON.stringify(projects));
+        console.log('project deleted');
     }
 
     // Update project status
-    static updateStatus(projectName) {
+    static updateStatus(id, status) {
         const projects = Project.getAllProjects();
 
-        projects[projectName]['status'] = 'completed';
+        projects[id]['status'] = status;
 
         localStorage.setItem('projects', JSON.stringify(projects));
     }
