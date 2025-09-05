@@ -1,6 +1,6 @@
 import './styles.css';
 import { homeScreen } from './home-screen';
-import { Project } from './tasks';
+import { Project, Task, processForm } from './tasks';
 
 // Logic for new task modal
 const addTaskDialog = document.querySelector('#new-task-dialog');
@@ -12,17 +12,21 @@ addTaskBtn.addEventListener('click', () => {
     projectSelector.replaceChildren();
 
     for (const key in allProjects) {
-        console.log(`ID: ${key} | ${allProjects[key]['projectName']}`)
-
         const prjOption = document.createElement('option');
         prjOption.textContent = allProjects[key]['projectName'];
-        prjOption.value = allProjects[key]['projectName'];
+        prjOption.value = key;
         projectSelector.appendChild(prjOption);
     }
 
-    
+    const newProject = document.createElement('option');
+    newProject.textContent = 'New Project';
+    projectSelector.appendChild(newProject);
 
     addTaskDialog.showModal();
+
+    const newTaskForm = document.querySelector(form);
+    form.addEventListener('submit', processForm);
+
 })
 
 // Logic to close modal
@@ -32,11 +36,8 @@ closeModalBtn.addEventListener('click', () => {
     form.reset();
 })
 
-// // Listner to check for form new task form submission
-// const form = document.querySelector('form');
-// form.addEventListener('submit', processForm);
 
-// const projects = Project.getAllProjects();
+// const newTask = new Task('test 2', '1/1/25', 'High');
 
-// Event listener for creating a new project
+// newTask.save('cc3331c0-acae-4c24-92d6-ffcf2f6e2770');
 
