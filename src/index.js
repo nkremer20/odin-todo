@@ -6,6 +6,22 @@ import { Project } from './tasks';
 const addTaskDialog = document.querySelector('#new-task-dialog');
 const addTaskBtn = document.querySelector('.add-task-btn');
 addTaskBtn.addEventListener('click', () => {
+    const allProjects = Project.getAllProjects();
+
+    const projectSelector = document.querySelector('#projects');
+    projectSelector.replaceChildren();
+
+    for (const key in allProjects) {
+        console.log(`ID: ${key} | ${allProjects[key]['projectName']}`)
+
+        const prjOption = document.createElement('option');
+        prjOption.textContent = allProjects[key]['projectName'];
+        prjOption.value = allProjects[key]['projectName'];
+        projectSelector.appendChild(prjOption);
+    }
+
+    
+
     addTaskDialog.showModal();
 })
 
@@ -23,6 +39,4 @@ closeModalBtn.addEventListener('click', () => {
 // const projects = Project.getAllProjects();
 
 // Event listener for creating a new project
-
-
 

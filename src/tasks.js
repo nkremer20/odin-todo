@@ -38,6 +38,15 @@ class Project {
         localStorage.setItem('projects', JSON.stringify(projects));
     }
 
+    // Update project name
+    static updateProjectName(id, projectName) {
+        const projects = Project.getAllProjects();
+
+        projects[id]['projectName'] = projectName;
+
+        localStorage.setItem('projects', JSON.stringify(projects));
+    }
+
     static getAllProjects() {
         const projects = localStorage.getItem('projects');
 
