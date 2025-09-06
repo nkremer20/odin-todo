@@ -19,17 +19,52 @@ h1, h2, h3, h4, h5, h6, p, button {
     margin: 0;
 }
 
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+}
+
 header {
     background-color: #1f1f1f;
     margin: 10px;
-    padding: 10px;
+    padding: 10px 20px;
     border-radius: 10px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 2fr 1fr;
     align-items: center;
-    justify-items: center;
+    justify-items: end;
 }
 
-.add-task-svg {
-    width: 25px;
+header > h1 {
+    font-size: 25px;
+    justify-self: start;
+}
+
+.header-btns {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 25px;
+}
+
+.header-btns > button {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.header-btns > button:hover {
+    background-color: #121212;
 }
