@@ -38,6 +38,6 @@ closeModalBtn.addEventListener('click', () => {
 
 
 // const newTask = new Task('test 2', '1/1/25', 'High');
-
 // newTask.save('cc3331c0-acae-4c24-92d6-ffcf2f6e2770');
 
+Task.delete('cc3331c0-acae-4c24-92d6-ffcf2f6e2770', '64104884-eab0-4136-803c-9f79368de47e')

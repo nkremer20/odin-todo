@@ -68,6 +68,7 @@ class Task {
         this.id = crypto.randomUUID();
     }
 
+    // Save a task to a project
     save(prjID) {
         const projects = Project.getAllProjects();
 
@@ -77,6 +78,15 @@ class Task {
             priority: this.priority,
             status: this.status,
         }
+
+        localStorage.setItem('projects', JSON.stringify(projects));
+    }
+
+    // Delete a task from a project
+    static delete(prjID, taskID) {
+        const projects = Project.getAllProjects();
+
+        delete projects[prjID]['tasks'][taskID];
 
         localStorage.setItem('projects', JSON.stringify(projects));
     }
