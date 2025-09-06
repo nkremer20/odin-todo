@@ -3,13 +3,13 @@
 html, body {
     margin: 0;
     padding-top: 0;
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    grid-template-rows: 1fr;
     width: 100vw;
     min-height: 100dvh;
     font-family: Roboto, Arial;
-    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #121212;
+    color: white;
 }
 
 h1, h2, h3, h4, h5, h6, p, button {
@@ -17,115 +17,19 @@ h1, h2, h3, h4, h5, h6, p, button {
     font-style: normal;
     padding: 0;
     margin: 0;
-    font-size: 16px;
 }
 
-button {
-    cursor: pointer;
-}
-
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    background-color: #fcf9f8;
-    padding: 20px;
-    position: sticky;
-    left: 0;
-}
-
-.user-info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-.user-info > h1 {
-    font-weight: 600;
-}
-
-.profile-pic {
-    height: 30px;
-    width: 30px;
-    background-color: blue;
-    border-radius: 100%;
-}
-
-.sidebar > button {
-    text-align: start;
-    border: none;
-    margin-bottom: 10px;
-    background-color: rgba(255, 255, 255, 0);
-}
-
-.todo-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    gap: 10px;
-    padding-left: 20px;
-    margin-right: 20px;
-}
-
-#new-task-dialog {
-    border: none;
+header {
+    background-color: #1f1f1f;
+    margin: 10px;
+    padding: 10px;
     border-radius: 10px;
-    min-width: 500px;
-}
-
-.close-dialog {
-    background-color: rgba(255, 0, 0, 0.465);
-}
-
-form {
-    font-family: Roboto, Arial;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.task-params {
     display: grid;
-    grid-template-columns: repeat(2, 125px);
-    gap: 5px;
-    border-bottom: 1px solid gray;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
 }
 
-select {
-    width: 125px;
-}
-
-form button {
-    width: 100px;
-    border: none;
-    border-radius: 5px;
-    background-color: #cb8500;
-    color: white;
-    padding: 10px;
-}
-
-.submit-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.project-card {
-    width: 300px;
-    height: fit-content;
-    background-color: rgb(201, 201, 201);
-    padding: 10px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    border-top: 5px solid green;
-    display: flex;
-    justify-content: center;
-}
-
-.project-name {
-    font-weight: 500;
-    font-size: 20px;
+.add-task-svg {
+    width: 25px;
 }
