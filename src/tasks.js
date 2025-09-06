@@ -90,6 +90,42 @@ class Task {
 
         localStorage.setItem('projects', JSON.stringify(projects));
     }
+
+    // Update task name
+    static updateName(prjID, taskID, newTaskName) {
+        const projects = Project.getAllProjects();
+
+        projects[prjID]['tasks'][taskID]['taskName'] = newTaskName;
+
+        localStorage.setItem('projects', JSON.stringify(projects));
+    }
+
+    // Update task due date
+    static updateDueDate(prjID, taskID, newDueDate) {
+        const projects = Project.getAllProjects();
+
+        projects[prjID]['tasks'][taskID]['dueDate'] = newDueDate;
+
+        localStorage.setItem('projects', JSON.stringify(projects));
+    }
+
+    // Update task priority
+    static updatePriority(prjID, taskID, newPriority) {
+        const projects = Project.getAllProjects();
+
+        projects[prjID]['tasks'][taskID]['priority'] = newPriority;
+
+        localStorage.setItem('projects', JSON.stringify(projects));
+    }
+    
+    // Update task status
+    static updateStatus(prjID, taskID, newStatus) {
+        const projects = Project.getAllProjects();
+
+        projects[prjID]['tasks'][taskID]['status'] = newStatus;
+
+        localStorage.setItem('projects', JSON.stringify(projects));
+    }
 }
 
 function processForm(event) {
