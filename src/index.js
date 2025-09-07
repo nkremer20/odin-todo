@@ -1,6 +1,25 @@
 import './styles.css';
 import { homeScreen } from './home-screen';
-import { Project, Task, processForm } from './tasks';
+import { Project, Task, processForm, createPrjCard, createTaskCard } from './tasks';
+
+// Load projects and tasks when page loads
+window.onload = () => {
+    const projects = Project.getAllProjects();
+
+    for (let prjID in projects) {
+        const project = projects[prjID];
+
+        createPrjCard(prjID, project['projectName'])
+
+        for (let taskID in project['tasks']) {
+            const task = project['tasks'][taskID];
+
+            console.log(task['taskName']);
+
+            createTaskCard(prjID, taskID, task['taskName'], task['dueDate'], task['status'], task['priority'])
+        }
+    }
+}
 
 // // Logic for new task modal
 // const addTaskDialog = document.querySelector('#new-task-dialog');

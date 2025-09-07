@@ -150,10 +150,44 @@ function processForm(event) {
     addTaskDialog.close();
 }
 
-// function createTaskCard (task) {
-//     const todoContainer = document.querySelector('.todo-container');
+function createPrjCard(prjID, prjName) {
+    const todoContainer = document.querySelector('.todo-container')
 
-// }
+    const prjCard = document.createElement('div');
+    prjCard.id = prjID;
+    prjCard.classList.add('prj-card');
 
+    const prjCardName = document.createElement('h1');
+    prjCardName.textContent = prjName;
+    prjCard.appendChild(prjCardName);
 
-export { Project, Task, processForm };
+    todoContainer.appendChild(prjCard);
+}
+
+function createTaskCard(prjID, taskID, taskName, dueDate, status, priority) {
+    const prjCard = document.getElementById(prjID);
+
+    const taskCard = document.createElement('div');
+    taskCard.id = taskID;
+    taskCard.classList.add('task-card');
+
+    const taskCardName = document.createElement('p');
+    taskCardName.textContent = `Task Name: ${taskName}`;
+    taskCard.appendChild(taskCardName);
+
+    const taskCardDueDate = document.createElement('p');
+    taskCardDueDate.textContent = `Due Date: ${dueDate}`;
+    taskCard.appendChild(taskCardDueDate);
+
+    const taskCardStatus = document.createElement('p');
+    taskCardStatus.textContent = `Status: ${status}`;
+    taskCard.appendChild(taskCardStatus);
+
+    const taskCardPriority = document.createElement('p');
+    taskCardPriority.textContent = `Priority: ${priority}`;
+    taskCard.appendChild(taskCardPriority);
+
+    prjCard.appendChild(taskCard);
+}
+
+export { Project, Task, processForm, createPrjCard, createTaskCard };
