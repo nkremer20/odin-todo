@@ -2,39 +2,39 @@ import './styles.css';
 import { homeScreen } from './home-screen';
 import { Project, Task, processForm } from './tasks';
 
-// Logic for new task modal
-const addTaskDialog = document.querySelector('#new-task-dialog');
-const addTaskBtn = document.querySelector('.add-task-btn');
-addTaskBtn.addEventListener('click', () => {
-    const allProjects = Project.getAllProjects();
+// // Logic for new task modal
+// const addTaskDialog = document.querySelector('#new-task-dialog');
+// const addTaskBtn = document.querySelector('.add-task-btn');
+// addTaskBtn.addEventListener('click', () => {
+//     const allProjects = Project.getAllProjects();
 
-    const projectSelector = document.querySelector('#projects');
-    projectSelector.replaceChildren();
+//     const projectSelector = document.querySelector('#projects');
+//     projectSelector.replaceChildren();
 
-    for (const key in allProjects) {
-        const prjOption = document.createElement('option');
-        prjOption.textContent = allProjects[key]['projectName'];
-        prjOption.value = key;
-        projectSelector.appendChild(prjOption);
-    }
+//     for (const key in allProjects) {
+//         const prjOption = document.createElement('option');
+//         prjOption.textContent = allProjects[key]['projectName'];
+//         prjOption.value = key;
+//         projectSelector.appendChild(prjOption);
+//     }
 
-    const newProject = document.createElement('option');
-    newProject.textContent = 'New Project';
-    projectSelector.appendChild(newProject);
+//     const newProject = document.createElement('option');
+//     newProject.textContent = 'New Project';
+//     projectSelector.appendChild(newProject);
 
-    addTaskDialog.showModal();
+//     addTaskDialog.showModal();
 
-    const newTaskForm = document.querySelector(form);
-    form.addEventListener('submit', processForm);
+//     const newTaskForm = document.querySelector(form);
+//     form.addEventListener('submit', processForm);
 
-})
+// })
 
-// Logic to close modal
-const closeModalBtn = document.querySelector('.close-dialog');
-closeModalBtn.addEventListener('click', () => {
-    addTaskDialog.close();
-    form.reset();
-})
+// // Logic to close modal
+// const closeModalBtn = document.querySelector('.close-dialog');
+// closeModalBtn.addEventListener('click', () => {
+//     addTaskDialog.close();
+//     form.reset();
+// })
 
 
 // const newTask = new Task('test 2', '1/1/25', 'High');
