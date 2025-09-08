@@ -158,6 +158,34 @@ function processTaskForm(event) {
     createTaskCard(prjID, newTask['id'], taskName, dueDate, newTask['status'], priority);
 }
 
+function processProjectForm(event) {
+    event.preventDefault();
+    const form = document.querySelector('.add-project-form');
+
+    let projectData = [];
+
+    for (let i = 0; i < form.elements.length; i++) {
+        let element = form.elements[i];
+        if (element.type !== 'submit' && element.type !== 'reset') {
+            projectData[i] = element.value;
+        }
+    }
+
+    const projectName = projectData[0];
+
+    const newProject = new Project(projectName);
+    newProject.save()
+
+    form.reset();
+
+    const modal = document.querySelector('.add-project-modal');
+    modal.close();
+
+    createPrjCard(newProject['id'], projectName);
+
+    console.log(projectData);
+}
+
 function createPrjCard(prjID, prjName) {
     const todoContainer = document.querySelector('.todo-container')
 
@@ -198,4 +226,4 @@ function createTaskCard(prjID, taskID, taskName, dueDate, status, priority) {
     prjCard.appendChild(taskCard);
 }
 
-export { Project, Task, processTaskForm, createPrjCard, createTaskCard };
+export { Project, Task, processTaskForm, processProjectForm, createPrjCard, createTaskCard };

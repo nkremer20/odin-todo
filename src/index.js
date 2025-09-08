@@ -1,6 +1,6 @@
 import './styles.css';
 import { homeScreen } from './home-screen';
-import { Project, Task, processTaskForm, createPrjCard, createTaskCard } from './tasks';
+import { Project, Task, processTaskForm, processProjectForm, createPrjCard, createTaskCard } from './tasks';
 
 // Load projects and tasks when page loads
 window.onload = () => {
@@ -56,7 +56,7 @@ addProjectBtn.addEventListener('click', () => {
 
     addProjectModal.showModal();
 
-    // addProjectForm.addEventListener('submit', processProjectForm);
+    addProjectForm.addEventListener('submit', processProjectForm);
 
     // Logic to close the add project modal
     const cancelProjectBtn = document.querySelector('#cancel-project');
