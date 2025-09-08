@@ -141,16 +141,21 @@ function processTaskForm(event) {
         }
     }
 
-    const newTask = new Task(taskData[0], taskData[1], taskData[2]);
+    const taskName = taskData[0];
+    const dueDate = taskData[1];
+    const priority = taskData[2];
+    const prjID = taskData[3];
 
-    newTask.save(taskData[3]);
+    const newTask = new Task(taskName, dueDate, priority);
+
+    newTask.save(prjID);
 
     form.reset();
 
     const modal = document.querySelector('.add-task-modal');
     modal.close();
 
-    createTaskCard(taskData[3], newTask['id'])
+    createTaskCard(prjID, newTask['id'], taskName, dueDate, newTask['status'], priority);
 }
 
 function createPrjCard(prjID, prjName) {
