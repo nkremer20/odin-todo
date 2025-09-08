@@ -1,6 +1,6 @@
 import './styles.css';
 import { homeScreen } from './home-screen';
-import { Project, Task, processForm, createPrjCard, createTaskCard } from './tasks';
+import { Project, Task, processTaskForm, createPrjCard, createTaskCard } from './tasks';
 
 // Load projects and tasks when page loads
 window.onload = () => {
@@ -14,12 +14,36 @@ window.onload = () => {
         for (let taskID in project['tasks']) {
             const task = project['tasks'][taskID];
 
-            console.log(task['taskName']);
-
             createTaskCard(prjID, taskID, task['taskName'], task['dueDate'], task['status'], task['priority'])
         }
     }
 }
+
+// Open modal and process new task form on sumbission
+const addTaskModal = document.querySelector('.add-task-modal');
+const addTaskForm = document.querySelector('.add-task-form');
+const addTaskBtn = document.querySelector('.add-task-btn');
+
+addTaskBtn.addEventListener('click', () => {
+    const projects = Project.getAllProjects();
+
+    const projectSelector = document.querySelector('#project');
+    projectSelector.replaceChildren();
+    for (const key in projects) {
+        const prjOption = document.createElement('option');
+        prjOption.textContent = projects[key]['projectName'];
+        prjOption.value = key;
+        projectSelector.appendChild(prjOption);
+    }
+
+    addTaskModal.showModal();
+
+    const addTaskForm = document.querySelector('.add-task-form');
+
+    addTaskForm.addEventListener('submit', processTaskForm);
+
+    
+})
 
 // // Logic for new task modal
 // const addTaskDialog = document.querySelector('#new-task-dialog');

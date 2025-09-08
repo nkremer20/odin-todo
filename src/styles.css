@@ -32,6 +32,54 @@ textarea {
   border: none;
 }
 
+button {
+    cursor: pointer;
+}
+
+/* Default modal styling */
+dialog {
+    background-color: #1f1f1f;
+    border: none;
+    border-radius: 10px;
+    color: rgb(207, 207, 207);
+    padding: 10px 0 10px 0;
+    min-width: 400px;
+    max-width: 400px;
+}
+
+.seperator {
+    height: 1px;
+    background-color: rgb(207, 207, 207);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+dialog button {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    box-sizing: border-box;
+    field-sizing: content;
+    margin-bottom: 20px;
+}
+
+textarea:focus {
+    border: none;
+    outline: none;
+}
+
+.submit {
+    background-color: green;
+}
+
+.cancel {
+    background-color: red;
+}
+
 /* Header styling */
 header {
     background-color: #1f1f1f;
@@ -115,10 +163,6 @@ header > h1 {
     background-color: #1f1f1f;
 }
 
-/* .prj-card button {
-
-} */
-
 /* Task card styling */
 .task-card {
     border-radius: 10px;
@@ -135,3 +179,15 @@ header > h1 {
 .prj-card > .task-card:nth-child(odd) {
     background-color: #1f1f1f;
 }
+
+/* Add task modal styling */
+.task-info, .task-submit {
+    padding: 0 10px 0 10px;
+}
+
+.task-submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+

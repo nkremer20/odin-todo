@@ -128,7 +128,7 @@ class Task {
     }
 }
 
-function processForm(event) {
+function processTaskForm(event) {
     event.preventDefault();
     const form = document.querySelector('form');
 
@@ -136,18 +136,15 @@ function processForm(event) {
 
     for (let i = 0; i < form.elements.length; i++) {
         let element = form.elements[i];
-        if (element.type !== 'submit') {
-            taskData[i] = element.value;
+        if (element.type !== 'submit' && element.type !== 'reset') {
+            taskData[i] = element.value + ' ' + element.type;
+            console.log(element.type);
         }
     }
 
     const newTask = new Task(taskData[0], taskData[1], taskData[2]);
-    newTask.save();
 
-    form.reset();
-
-    const addTaskDialog = document.querySelector('#new-task-dialog');
-    addTaskDialog.close();
+    newTask.save(taskData[3]);
 }
 
 function createPrjCard(prjID, prjName) {
@@ -190,4 +187,4 @@ function createTaskCard(prjID, taskID, taskName, dueDate, status, priority) {
     prjCard.appendChild(taskCard);
 }
 
-export { Project, Task, processForm, createPrjCard, createTaskCard };
+export { Project, Task, processTaskForm, createPrjCard, createTaskCard };
