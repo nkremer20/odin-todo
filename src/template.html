@@ -9,7 +9,7 @@
     <header>
         <h1>To-Do Dashboard</h1>
         <div class="header-btns">
-            <button class="add-prj-btn">
+            <button class="add-project-btn">
                 <img src="./assets/work_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Add Project" class="add-task-svg">
                 Add Project
             </button>
@@ -86,7 +86,22 @@
         </dialog>
 
         <!-- New Project Modal -->
-        <dialog></dialog>
+        <dialog class="add-project-modal">
+            <form action="#" class="add-project-form">
+                <div class="project-info">
+                    <div class="project-name-input">
+                        <textarea type="text" name="project-name" id="project-name" placeholder="Project Name" required></textarea>
+                    </div>
+                </div>
+                <div class="seperator"></div>
+                <div class="project-submit">
+                    <div class="submit-btns">
+                        <button type="reset" class="cancel" id="cancel-project">Cancel</button>
+                        <button type="submit" class="submit">Add Project</button>
+                    </div>
+                </div>
+            </form> 
+        </dialog>
     </div>
 </body>
 </html>

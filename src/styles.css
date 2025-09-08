@@ -80,6 +80,14 @@ textarea:focus {
     background-color: red;
 }
 
+.task-info, .task-submit, .project-info, .project-submit {
+    padding: 0 10px 0 10px;
+}
+
+dialog::backdrop {
+    background-color: #12121287;
+}
+
 /* Header styling */
 header {
     background-color: #1f1f1f;
@@ -181,13 +189,14 @@ header > h1 {
 }
 
 /* Add task modal styling */
-.task-info, .task-submit {
-    padding: 0 10px 0 10px;
-}
-
 .task-submit {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
+/* Add project modal styling */
+.project-submit {
+    display: flex;
+    justify-content: end;
+}
