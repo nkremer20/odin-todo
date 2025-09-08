@@ -160,15 +160,37 @@ header > h1 {
     display: none;
 }
 
-.prj-card > h1 {
+.prj-card-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid white;
+}
+
+.prj-card h1 {
     font-size: 20px;
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px solid white;
     position: sticky;
     top: 0;
     background-color: #1f1f1f;
+    grid-column: 2/3;
+}
+
+.delete-task-btn {
+    align-self: center;
+    justify-self: end;
+    width: fit-content;
+    border: 1px solid transparent;
+    border-radius: 50%;
+}
+
+.delete-task-btn img {
+    vertical-align: middle;
+}
+
+.delete-task-btn:hover {
+    background-color: rgb(188, 0, 0);
 }
 
 /* Task card styling */
