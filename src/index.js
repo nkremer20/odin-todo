@@ -42,8 +42,14 @@ addTaskBtn.addEventListener('click', () => {
 
     addTaskForm.addEventListener('submit', processTaskForm);
 
-    
+    // Logic to close the add task modal
+    const cancelTaskBtn = document.querySelector('#cancel-task');
+    cancelTaskBtn.addEventListener('click', () => {
+        addTaskModal.close();
+    })
 })
+
+
 
 // // Logic for new task modal
 // const addTaskDialog = document.querySelector('#new-task-dialog');
