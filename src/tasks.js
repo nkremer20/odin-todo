@@ -130,21 +130,27 @@ class Task {
 
 function processTaskForm(event) {
     event.preventDefault();
-    const form = document.querySelector('form');
+    const form = document.querySelector('.add-task-form');
 
     let taskData = [];
 
     for (let i = 0; i < form.elements.length; i++) {
         let element = form.elements[i];
         if (element.type !== 'submit' && element.type !== 'reset') {
-            taskData[i] = element.value + ' ' + element.type;
-            console.log(element.type);
+            taskData[i] = element.value;
         }
     }
 
     const newTask = new Task(taskData[0], taskData[1], taskData[2]);
 
     newTask.save(taskData[3]);
+
+    form.reset();
+
+    const modal = document.querySelector('.add-task-modal');
+    modal.close();
+
+    createTaskCard(taskData[3], newTask['id'])
 }
 
 function createPrjCard(prjID, prjName) {
