@@ -36,6 +36,13 @@ button {
     cursor: pointer;
 }
 
+textarea {
+    resize: none;
+    width: 100%;
+    box-sizing: border-box;
+    field-sizing: content;
+}
+
 /* Default modal styling */
 dialog {
     background-color: #1f1f1f;
@@ -59,11 +66,7 @@ dialog button {
     border-radius: 5px;
 }
 
-textarea {
-    resize: none;
-    width: 100%;
-    box-sizing: border-box;
-    field-sizing: content;
+dialog textarea {
     margin-bottom: 20px;
 }
 
@@ -161,20 +164,23 @@ header > h1 {
 }
 
 .prj-card-header {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
     border-bottom: 1px solid white;
-}
-
-.prj-card h1 {
-    font-size: 20px;
-    text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.prj-card-header > textarea {
+    font-size: 20px;
+    text-align: start;
     position: sticky;
     top: 0;
     background-color: #1f1f1f;
-    grid-column: 2/3;
+}
+
+.prj-card-header > textarea:focus {
+    outline: 1px solid rgba(86, 86, 250, 0.503);
+    border-radius: 5px;
 }
 
 .delete-task-btn {
@@ -208,6 +214,33 @@ header > h1 {
 
 .prj-card > .task-card:nth-child(odd) {
     background-color: #1f1f1f;
+}
+
+.status-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 20px 0 20px;
+}
+
+input[type='radio'] {
+    display: none;
+}
+
+.status-label {
+    border: 3px solid rgb(207, 207, 207);
+    border-radius: 50px;
+    padding: 10px;
+
+}
+
+.status-label:hover {
+    background-color: rgba(86, 86, 250, 0.28);
+}
+
+input[type="radio"]:checked + .status-label {
+    background-color: rgba(86, 86, 250, 0.503);
+    border: 3px solid rgb(207, 207, 207);
 }
 
 /* Add task modal styling */

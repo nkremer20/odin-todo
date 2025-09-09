@@ -22,14 +22,29 @@
     <div class="todo-container">
         <div class="prj-card">
             <div class="prj-card-header">
-                <h1>Project Name</h1>
+                <!-- <h1>Project Name</h1> -->
+                <!-- Add tooltip -->
+                <textarea name="task-name" title="This is a tooltip for the textarea.">Project Name</textarea>
                 <button class="delete-task-btn"><img src="./assets/close_small_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Delete Project"></button>
             </div>
             <div class="task-card">
                 <p>Task name: TEST</p>
                 <p>Due Date: 8/10/2025</p>
-                <p>Status: In Progress</p>
                 <p>Priority: High</p>
+                <div class="status-bar">
+                    <div class="status-option">
+                        <input type="radio" name="prj-status" id="not-started">
+                        <label for="not-started" class="status-label">Not Started</label>
+                    </div>
+                    <div class="status-option">
+                        <input type="radio" name="prj-status" id="in-progress">
+                        <label for="in-progress" class="status-label">In Progress</label>
+                    </div>
+                    <div class="status-option">
+                        <input type="radio" name="prj-status" id="completed">
+                        <label for="completed" class="status-label">Completed</label>
+                    </div>
+                </div>
             </div>
         </div>
         
