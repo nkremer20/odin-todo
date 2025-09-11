@@ -24,13 +24,28 @@
             <div class="prj-card-header">
                 <!-- <h1>Project Name</h1> -->
                 <!-- Add tooltip -->
-                <textarea name="task-name" title="This is a tooltip for the textarea.">Project Name</textarea>
-                <button class="delete-task-btn"><img src="./assets/close_small_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Delete Project"></button>
+                <textarea name="project-name">Project Name</textarea>
+                <button class="delete-project-btn"><img src="./assets/close_small_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Delete Project"></button>
             </div>
             <div class="task-card">
-                <p>Task name: TEST</p>
-                <p>Due Date: 8/10/2025</p>
-                <p>Priority: High</p>
+                <div class="task-card-header">
+                    <textarea name="task-name">Test task</textarea>
+                    <button class="delete-project-btn"><img src="./assets/close_small_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Delete Project"></button>
+                </div>
+                <div class="task-card-info">
+                    <p>
+                        Due Date: 
+                        <input type="date" name="due-date" value="2025-09-15">
+                    </p>
+                    <p>
+                        Priority: 
+                        <select name="priority">
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High" selected>High</option>
+                        </select>
+                    </p>
+                </div>
                 <div class="status-bar">
                     <div class="status-option">
                         <input type="radio" name="prj-status" id="not-started">
