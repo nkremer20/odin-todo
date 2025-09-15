@@ -3,23 +3,6 @@ import { homeScreen } from './home-screen';
 import { Project, Task, processTaskForm, processProjectForm, createPrjCard, createTaskCard } from './tasks';
 
 // Load projects and tasks when page loads
-// window.onload = () => {
-//     const projects = Project.getAllProjects();
-
-//     for (let prjID in projects) {
-//         const project = projects[prjID];
-
-//         createPrjCard(prjID, project['projectName'])
-
-//         for (let taskID in project['tasks']) {
-//             const task = project['tasks'][taskID];
-
-//             createTaskCard(prjID, taskID, task['taskName'], task['dueDate'], task['status'], task['priority'])
-//         }
-//     }
-// }
-
-// Load projects and tasks when page loads
 let projects = Project.getAllProjects();
 
 for (let prjID in projects) {
@@ -53,6 +36,10 @@ prjDeleteBtns.forEach(prjDeleteBtn => {
     })
 })
 
+// TODO: Update project name
+let prjCards = document.querySelectorAll('.prj-card');
+console.log(prjCards)
+
 // Delete task
 let taskDeleteBtns = document.querySelectorAll('.delete-task-btn');
 console.log(taskDeleteBtns)
@@ -75,6 +62,14 @@ taskDeleteBtns.forEach(taskDeleteBtn => {
         taskDeleteBtns = document.querySelectorAll('.delete-task-btn');
     })
 })
+
+// TODO: Update task name
+
+// TODO: Update task due date
+
+// TODO: Update task priority
+
+// TODO: Update task status
 
 // Open new task modal and process new task form on sumbission
 const addTaskModal = document.querySelector('.add-task-modal');
@@ -102,6 +97,8 @@ addTaskBtn.addEventListener('click', () => {
     cancelTaskBtn.addEventListener('click', () => {
         addTaskModal.close();
     })
+
+    // TODO: Update task delete button query selector when new task is created
 })
 
 // Open new project modal and process new project form on sumbission
@@ -120,4 +117,6 @@ addProjectBtn.addEventListener('click', () => {
     cancelProjectBtn.addEventListener('click', () => {
         addProjectModal.close();
     })
+
+    // TODO: Update project delete button query selector when new project is created
 })
