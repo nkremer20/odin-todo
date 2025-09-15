@@ -209,7 +209,7 @@ function createPrjCard(prjID, prjName) {
 
     // Create delete prj button
     const deletePrjBtn = document.createElement('button');
-    deletePrjBtn.classList.add('delete-project-btn');
+    deletePrjBtn.classList.add('delete-btn');
     const deleteIcon = document.createElement('img');
     deleteIcon.src = closeIcon;
     deletePrjBtn.appendChild(deleteIcon);
@@ -221,25 +221,129 @@ function createPrjCard(prjID, prjName) {
 function createTaskCard(prjID, taskID, taskName, dueDate, status, priority) {
     const prjCard = document.getElementById(prjID);
 
+    // Create task card
     const taskCard = document.createElement('div');
     taskCard.id = taskID;
     taskCard.classList.add('task-card');
 
-    const taskCardName = document.createElement('p');
-    taskCardName.textContent = `Task Name: ${taskName}`;
-    taskCard.appendChild(taskCardName);
+    // Create task card header
+    const taskCardHeader = document.createElement('div');
+    taskCardHeader.classList.add('task-card-header');
+    taskCard.appendChild(taskCardHeader);
 
-    const taskCardDueDate = document.createElement('p');
-    taskCardDueDate.textContent = `Due Date: ${dueDate}`;
-    taskCard.appendChild(taskCardDueDate);
+    // Create task name textarea
+    const taskCardName = document.createElement('textarea');
+    taskCardName.name = 'task-name';
+    taskCardName.textContent = taskName;
+    taskCardHeader.appendChild(taskCardName);
 
-    const taskCardStatus = document.createElement('p');
-    taskCardStatus.textContent = `Status: ${status}`;
-    taskCard.appendChild(taskCardStatus);
+    // Create delete task button
+    const deleteTaskBtn = document.createElement('button');
+    deleteTaskBtn.classList.add('delete-btn');
+    const deleteIcon = document.createElement('img');
+    deleteIcon.src = closeIcon;
+    deleteTaskBtn.appendChild(deleteIcon);
+    taskCardHeader.appendChild(deleteTaskBtn);
 
-    const taskCardPriority = document.createElement('p');
-    taskCardPriority.textContent = `Priority: ${priority}`;
-    taskCard.appendChild(taskCardPriority);
+    // Create task card info div
+    const taskCardInfo = document.createElement('div');
+    taskCardInfo.classList.add('task-card-info');
+    taskCard.appendChild(taskCardInfo);
+
+    // Create due date input
+    const dueDateLabel = document.createElement('p');
+    dueDateLabel.textContent = 'Due Date: ';
+    const dueDateInput = document.createElement('input')
+    dueDateInput.type = 'date';
+    dueDateInput.name = 'due-date';
+    // dueDateInput.value = dueDate; Add after figuring out date formatting
+    dueDateLabel.appendChild(dueDateInput);
+    taskCardInfo.appendChild(dueDateLabel);
+
+    // Create priority input
+    const priorityLabel = document.createElement('p');
+    priorityLabel.textContent = `Priority: `;
+    const prioritySelector = document.createElement('select');
+    prioritySelector.name = 'priority';
+    priorityLabel.appendChild(prioritySelector);
+    const low = document.createElement('option');
+    low.textContent = 'Low';
+    low.value = 'Low';
+    prioritySelector.appendChild(low);
+    const medium = document.createElement('option');
+    medium.textContent = 'Medium';
+    medium.value = 'Medium';
+    prioritySelector.appendChild(medium);
+    const high = document.createElement('option');
+    high.textContent = 'High';
+    high.value = 'High';
+    prioritySelector.appendChild(high);
+    if (priority === 'Low') {
+        low.selected = true;
+    } else if (priority === 'Medium') {
+        medium.selected = true;
+    } else {
+        high.selected = true;
+    }
+    taskCardInfo.appendChild(priorityLabel);
+
+    // Create status selector
+    const statusBar = document.createElement('div');
+    statusBar.classList.add('status-bar');
+    taskCard.appendChild(statusBar);
+
+    const notStartedContainer = document.createElement('div');
+    notStartedContainer.classList.add('status-option');
+    statusBar.appendChild(notStartedContainer);
+    const notStartedInput = document.createElement('input');
+    notStartedInput.type = 'radio';
+    notStartedInput.name = `task-status-${taskID}`;
+    notStartedInput.id = `not-started-${taskID}`;
+    notStartedInput.value = 'Not Started';
+    notStartedContainer.appendChild(notStartedInput);
+    const notStartedLabel = document.createElement('label');
+    notStartedLabel.textContent = 'Not Started';
+    notStartedLabel.htmlFor = `not-started-${taskID}`;
+    notStartedLabel.classList.add('status-label');
+    notStartedContainer.appendChild(notStartedLabel);
+
+    const inProgressContainer = document.createElement('div');
+    inProgressContainer.classList.add('status-option');
+    statusBar.appendChild(inProgressContainer);
+    const inProgressInput = document.createElement('input');
+    inProgressInput.type = 'radio';
+    inProgressInput.name = `task-status-${taskID}`;
+    inProgressInput.id = `in-progress-${taskID}`;
+    inProgressInput.value = 'In Progress';
+    inProgressContainer.appendChild(inProgressInput);
+    const inProgressLabel = document.createElement('label');
+    inProgressLabel.textContent = 'In Progress';
+    inProgressLabel.htmlFor = `in-progress-${taskID}`;
+    inProgressLabel.classList.add('status-label');
+    inProgressContainer.appendChild(inProgressLabel);
+
+    const completedContainer = document.createElement('div');
+    completedContainer.classList.add('status-option');
+    statusBar.appendChild(completedContainer);
+    const completedInput = document.createElement('input');
+    completedInput.type = 'radio';
+    completedInput.name = `task-status-${taskID}`;
+    completedInput.id = `completed-${taskID}`;
+    completedInput.value = 'Completed';
+    completedContainer.appendChild(completedInput);
+    const completedLabel = document.createElement('label');
+    completedLabel.textContent = 'Completed';
+    completedLabel.htmlFor = `completed-${taskID}`;
+    completedLabel.classList.add('status-label');
+    completedContainer.appendChild(completedLabel);
+
+    if (status === 'Not Started') {
+        notStartedInput.checked = true;
+    } else if (status === 'In Progress') {
+        inProgressInput.checked = true;
+    } else {
+        completedInput.checked = true;
+    }
 
     prjCard.appendChild(taskCard);
 }

@@ -184,7 +184,7 @@ header > h1 {
     border-radius: 5px;
 }
 
-.delete-project-btn {
+.delete-btn {
     align-self: center;
     justify-self: end;
     width: fit-content;
@@ -192,11 +192,11 @@ header > h1 {
     border-radius: 50%;
 }
 
-.delete-project-btn img {
+.delete-btn img {
     vertical-align: middle;
 }
 
-.delete-project-btn:hover {
+.delete-btn:hover {
     background-color: rgb(188, 0, 0);
 }
 
