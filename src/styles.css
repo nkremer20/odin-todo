@@ -168,14 +168,15 @@ header > h1 {
     border-bottom: 1px solid white;
     padding-top: 10px;
     padding-bottom: 10px;
+    position: sticky;
+    top: 0;
+    background-color: #1f1f1f;
+    z-index: 1;
 }
 
 .prj-card-header > textarea {
     font-size: 20px;
     text-align: start;
-    position: sticky;
-    top: 0;
-    background-color: #1f1f1f;
 }
 
 .prj-card-header > textarea:focus {

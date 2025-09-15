@@ -1,3 +1,5 @@
+import closeIcon from './assets/close_small_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg';
+
 class Project {
     constructor(projectName, status='Not Started') {
         this.projectName = projectName;
@@ -189,13 +191,29 @@ function processProjectForm(event) {
 function createPrjCard(prjID, prjName) {
     const todoContainer = document.querySelector('.todo-container')
 
+    // Create prj card
     const prjCard = document.createElement('div');
     prjCard.id = prjID;
     prjCard.classList.add('prj-card');
 
-    const prjCardName = document.createElement('h1');
+    // Create prj card header
+    const prjCardHeader = document.createElement('div');
+    prjCardHeader.classList.add('prj-card-header');
+    prjCard.appendChild(prjCardHeader);
+
+    // Create prj name textarea
+    const prjCardName = document.createElement('textarea');
+    prjCardName.name = 'project-name';
     prjCardName.textContent = prjName;
-    prjCard.appendChild(prjCardName);
+    prjCardHeader.appendChild(prjCardName);
+
+    // Create delete prj button
+    const deletePrjBtn = document.createElement('button');
+    deletePrjBtn.classList.add('delete-project-btn');
+    const deleteIcon = document.createElement('img');
+    deleteIcon.src = closeIcon;
+    deletePrjBtn.appendChild(deleteIcon);
+    prjCardHeader.appendChild(deletePrjBtn);
 
     todoContainer.appendChild(prjCard);
 }
