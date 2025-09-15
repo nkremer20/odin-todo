@@ -34,7 +34,7 @@ for (let prjID in projects) {
     }
 }
 
-// Get all of the project card delete buttons
+// Delete project
 let prjDeleteBtns = document.querySelectorAll('.delete-prj-button');
 
 prjDeleteBtns.forEach(prjDeleteBtn => {
@@ -42,7 +42,7 @@ prjDeleteBtns.forEach(prjDeleteBtn => {
         const prjCard = prjDeleteBtn.parentNode.parentNode;
         const prjID = prjCard.id;
 
-        // Delete project
+        // Delete project from localStorage
         Project.delete(prjID);
 
         // Remove card from DOM
@@ -50,6 +50,29 @@ prjDeleteBtns.forEach(prjDeleteBtn => {
         deletedCard.remove();
 
         prjDeleteBtns = document.querySelectorAll('.delete-prj-button');
+    })
+})
+
+// Delete task
+let taskDeleteBtns = document.querySelectorAll('.delete-task-btn');
+console.log(taskDeleteBtns)
+
+taskDeleteBtns.forEach(taskDeleteBtn => {
+    taskDeleteBtn.addEventListener('click', () => {
+        const taskCard = taskDeleteBtn.parentNode.parentNode;
+        const taskCardID = taskCard.id;
+        
+        const prjCard = taskDeleteBtn.parentNode.parentNode.parentNode;
+        const prjCardID = prjCard.id;
+
+        // Delete task from localStorage
+        Task.delete(prjCardID, taskCardID);
+
+        // Remove card from DOM
+        const deletedCard = document.getElementById(taskCardID);
+        deletedCard.remove();
+
+        taskDeleteBtns = document.querySelectorAll('.delete-task-btn');
     })
 })
 

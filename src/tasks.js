@@ -91,6 +91,7 @@ class Task {
         delete projects[prjID]['tasks'][taskID];
 
         localStorage.setItem('projects', JSON.stringify(projects));
+        console.log('task deleted');
     }
 
     // Update task name
@@ -241,6 +242,7 @@ function createTaskCard(prjID, taskID, taskName, dueDate, status, priority) {
     // Create delete task button
     const deleteTaskBtn = document.createElement('button');
     deleteTaskBtn.classList.add('delete-btn');
+    deleteTaskBtn.classList.add('delete-task-btn');
     const deleteIcon = document.createElement('img');
     deleteIcon.src = closeIcon;
     deleteTaskBtn.appendChild(deleteIcon);
