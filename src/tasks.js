@@ -210,6 +210,7 @@ function createPrjCard(prjID, prjName) {
     // Create delete prj button
     const deletePrjBtn = document.createElement('button');
     deletePrjBtn.classList.add('delete-btn');
+    deletePrjBtn.classList.add('delete-prj-button')
     const deleteIcon = document.createElement('img');
     deleteIcon.src = closeIcon;
     deletePrjBtn.appendChild(deleteIcon);
