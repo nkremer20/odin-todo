@@ -204,6 +204,7 @@ function createPrjCard(prjID, prjName) {
 
     // Create prj name textarea
     const prjCardName = document.createElement('textarea');
+    prjCardName.classList.add('project-name')
     prjCardName.name = 'project-name';
     prjCardName.textContent = prjName;
     prjCardHeader.appendChild(prjCardName);

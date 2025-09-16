@@ -17,51 +17,54 @@ for (let prjID in projects) {
     }
 }
 
-// Delete project
-let prjDeleteBtns = document.querySelectorAll('.delete-prj-button');
+const todoContainer = document.querySelector('.todo-container')
 
-prjDeleteBtns.forEach(prjDeleteBtn => {
-    prjDeleteBtn.addEventListener('click', () => {
-        const prjCard = prjDeleteBtn.parentNode.parentNode;
-        const prjID = prjCard.id;
-
-        // Delete project from localStorage
-        Project.delete(prjID);
-
-        // Remove card from DOM
-        const deletedCard = document.getElementById(prjID);
-        deletedCard.remove();
-
-        prjDeleteBtns = document.querySelectorAll('.delete-prj-button');
-    })
-})
-
-// TODO: Update project name
-let prjCards = document.querySelectorAll('.prj-card');
-console.log(prjCards)
-
-// Delete task
-let taskDeleteBtns = document.querySelectorAll('.delete-task-btn');
-console.log(taskDeleteBtns)
-
-taskDeleteBtns.forEach(taskDeleteBtn => {
-    taskDeleteBtn.addEventListener('click', () => {
-        const taskCard = taskDeleteBtn.parentNode.parentNode;
-        const taskCardID = taskCard.id;
-        
-        const prjCard = taskDeleteBtn.parentNode.parentNode.parentNode;
+// Handle delete events on cards
+todoContainer.addEventListener('click', (e) => {
+    // Delete project
+    const prjDeleteBtn = e.target.closest('.delete-prj-button');
+    if (prjDeleteBtn) {
+        const prjCard = prjDeleteBtn.closest('.prj-card');
         const prjCardID = prjCard.id;
 
-        // Delete task from localStorage
-        Task.delete(prjCardID, taskCardID);
+        // Delete project from local storage
+        Project.delete(prjCardID);
 
-        // Remove card from DOM
-        const deletedCard = document.getElementById(taskCardID);
-        deletedCard.remove();
+        // Remove the card from the DOM
+        prjCard.remove();
+        return;
+    }
 
-        taskDeleteBtns = document.querySelectorAll('.delete-task-btn');
-    })
+    // Delete task
+
 })
+
+
+
+// TODO: Update project name
+
+// // Delete task
+// let taskDeleteBtns = document.querySelectorAll('.delete-task-btn');
+// console.log(taskDeleteBtns)
+
+// taskDeleteBtns.forEach(taskDeleteBtn => {
+//     taskDeleteBtn.addEventListener('click', () => {
+//         const taskCard = taskDeleteBtn.parentNode.parentNode;
+//         const taskCardID = taskCard.id;
+        
+//         const prjCard = taskDeleteBtn.parentNode.parentNode.parentNode;
+//         const prjCardID = prjCard.id;
+
+//         // Delete task from localStorage
+//         Task.delete(prjCardID, taskCardID);
+
+//         // Remove card from DOM
+//         const deletedCard = document.getElementById(taskCardID);
+//         deletedCard.remove();
+
+//         taskDeleteBtns = document.querySelectorAll('.delete-task-btn');
+//     })
+// })
 
 // TODO: Update task name
 
@@ -98,7 +101,6 @@ addTaskBtn.addEventListener('click', () => {
         addTaskModal.close();
     })
 
-    // TODO: Update task delete button query selector when new task is created
 })
 
 // Open new project modal and process new project form on sumbission
@@ -118,5 +120,4 @@ addProjectBtn.addEventListener('click', () => {
         addProjectModal.close();
     })
 
-    // TODO: Update project delete button query selector when new project is created
 })
