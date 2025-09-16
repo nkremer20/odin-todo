@@ -53,13 +53,40 @@ todoContainer.addEventListener('click', (e) => {
     }
 })
 
-// TODO: Update task name
+// Handle update events on project and taks card elements
+todoContainer.addEventListener('focusout', (e) => {
+    // TODO: Update project name
+    if (e.target.matches('textarea.project-name')) {
+        const textarea = e.target;
+        const prjCard = textarea.closest('.prj-card');
+        if (!prjCard) return;
 
-// TODO: Update task due date
+        const prjCardID = prjCard.id;
+        const newValue = textarea.value.trim();
+        const oldValue = (textarea.defaultValue ?? '').trim();
 
-// TODO: Update task priority
+        if (newValue !== oldValue) {
+            if (newValue.length === 0) {
+                textarea.value = textarea.defaultValue;
+                return;
+            }
 
-// TODO: Update task status
+            // Update project name in local storage
+            Project.updateProjectName(prjCardID, newValue);
+            textarea.defaultValue = textarea.value;
+            return;
+        }
+    }
+
+    // TODO: Update task name
+
+    // TODO: Update task due date
+
+    // TODO: Update task priority
+
+    // TODO: Update task status
+})
+
 
 // Open new task modal and process new task form on sumbission
 const addTaskModal = document.querySelector('.add-task-modal');

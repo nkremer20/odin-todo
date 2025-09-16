@@ -47,6 +47,8 @@ class Project {
         projects[id]['projectName'] = projectName;
 
         localStorage.setItem('projects', JSON.stringify(projects));
+
+        console.log(`Project Name updated to ${projectName}`);
     }
 
     static getAllProjects() {
