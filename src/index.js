@@ -30,41 +30,28 @@ todoContainer.addEventListener('click', (e) => {
         // Delete project from local storage
         Project.delete(prjCardID);
 
-        // Remove the card from the DOM
+        // Remove project card from the DOM
         prjCard.remove();
         return;
     }
 
     // Delete task
+    const taskDeleteBtn = e.target.closest('.delete-task-btn');
+    if (taskDeleteBtn) {
+        const prjCard = taskDeleteBtn.closest('.prj-card');
+        const prjCardID = prjCard.id;
+        const taskCard = taskDeleteBtn.closest('.task-card');
+        const taskCardID = taskCard.id;
 
-})
+        // Delete task from local storage
+        Task.delete(prjCardID, taskCardID);
 
-
-
-// TODO: Update project name
-
-// // Delete task
-// let taskDeleteBtns = document.querySelectorAll('.delete-task-btn');
-// console.log(taskDeleteBtns)
-
-// taskDeleteBtns.forEach(taskDeleteBtn => {
-//     taskDeleteBtn.addEventListener('click', () => {
-//         const taskCard = taskDeleteBtn.parentNode.parentNode;
-//         const taskCardID = taskCard.id;
+        // Remove task card from DOM
+        taskCard.remove();
         
-//         const prjCard = taskDeleteBtn.parentNode.parentNode.parentNode;
-//         const prjCardID = prjCard.id;
-
-//         // Delete task from localStorage
-//         Task.delete(prjCardID, taskCardID);
-
-//         // Remove card from DOM
-//         const deletedCard = document.getElementById(taskCardID);
-//         deletedCard.remove();
-
-//         taskDeleteBtns = document.querySelectorAll('.delete-task-btn');
-//     })
-// })
+        return;
+    }
+})
 
 // TODO: Update task name
 
