@@ -103,6 +103,8 @@ class Task {
         projects[prjID]['tasks'][taskID]['taskName'] = newTaskName;
 
         localStorage.setItem('projects', JSON.stringify(projects));
+
+        console.log(`Task Name updated to ${newTaskName}`);
     }
 
     // Update task due date
@@ -238,6 +240,7 @@ function createTaskCard(prjID, taskID, taskName, dueDate, status, priority) {
 
     // Create task name textarea
     const taskCardName = document.createElement('textarea');
+    taskCardName.classList.add('task-name');
     taskCardName.name = 'task-name';
     taskCardName.textContent = taskName;
     taskCardHeader.appendChild(taskCardName);
