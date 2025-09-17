@@ -53,7 +53,7 @@ todoContainer.addEventListener('click', (e) => {
     }
 })
 
-// Handle update events on project and taks card elements
+// Handle update events on project and tasks card text areas
 todoContainer.addEventListener('focusout', (e) => {
     // Update project name
     if (e.target.matches('textarea.project-name')) {
@@ -101,8 +101,24 @@ todoContainer.addEventListener('focusout', (e) => {
             return;
         }
     }
+})
 
-    // TODO: Update task due date
+// Handle update events on task inputs
+todoContainer.addEventListener('change', (e) => {
+    // Update task due date
+    if (e.target.matches('.due-date-input')) {
+        const dueDateInput = e.target;
+        const prjCard = dueDateInput.closest('.prj-card');
+        const prjCardID = prjCard.id;
+        const taskCard = dueDateInput.closest('.task-card');
+        const taskCardID = taskCard.id;
+
+        const newDueDate = e.target.value;
+        
+        // Update the task due date in local storage
+        Task.updateDueDate(prjCardID, taskCardID, newDueDate);
+        return;
+    }
 
     // TODO: Update task priority
 

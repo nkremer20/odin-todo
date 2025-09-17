@@ -114,6 +114,8 @@ class Task {
         projects[prjID]['tasks'][taskID]['dueDate'] = newDueDate;
 
         localStorage.setItem('projects', JSON.stringify(projects));
+
+        console.log(`Due date updated to ${newDueDate}`);
     }
 
     // Update task priority
@@ -265,7 +267,8 @@ function createTaskCard(prjID, taskID, taskName, dueDate, status, priority) {
     const dueDateInput = document.createElement('input')
     dueDateInput.type = 'date';
     dueDateInput.name = 'due-date';
-    // dueDateInput.value = dueDate; Add after figuring out date formatting
+    dueDateInput.classList.add('due-date-input')
+    dueDateInput.value = dueDate;
     dueDateLabel.appendChild(dueDateInput);
     taskCardInfo.appendChild(dueDateLabel);
 
