@@ -120,9 +120,35 @@ todoContainer.addEventListener('change', (e) => {
         return;
     }
 
-    // TODO: Update task priority
+    // Update task priority
+    if (e.target.matches('[name="task-priority"]')) {
+        const priorityInput = e.target;
+        const prjCard = priorityInput.closest('.prj-card');
+        const prjCardID = prjCard.id;
+        const taskCard = priorityInput.closest('.task-card');
+        const taskCardID = taskCard.id;
 
-    // TODO: Update task status
+        const newPriority = e.target.value;
+        
+        // Update the task priority in local storage
+        Task.updatePriority(prjCardID, taskCardID, newPriority);
+        return;
+    }
+
+    // Update task status
+    if (e.target.matches('input[type="radio"][name^="task-status-"]')) {
+        const statusInput = e.target;
+        const prjCard = statusInput.closest('.prj-card');
+        const prjCardID = prjCard.id;
+        const taskCard = statusInput.closest('.task-card');
+        const taskCardID = taskCard.id;
+
+        const newStatus = e.target.value;
+        
+        // Update the task status in local storage
+        Task.updateStatus(prjCardID, taskCardID, newStatus);
+        return;
+    }
 })
 
 

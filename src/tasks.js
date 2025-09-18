@@ -125,6 +125,8 @@ class Task {
         projects[prjID]['tasks'][taskID]['priority'] = newPriority;
 
         localStorage.setItem('projects', JSON.stringify(projects));
+
+        console.log(`Priority updated to ${newPriority}`);
     }
     
     // Update task status
@@ -134,6 +136,8 @@ class Task {
         projects[prjID]['tasks'][taskID]['status'] = newStatus;
 
         localStorage.setItem('projects', JSON.stringify(projects));
+
+        console.log(`Status updated to ${newStatus}`);
     }
 }
 
@@ -276,7 +280,7 @@ function createTaskCard(prjID, taskID, taskName, dueDate, status, priority) {
     const priorityLabel = document.createElement('p');
     priorityLabel.textContent = `Priority: `;
     const prioritySelector = document.createElement('select');
-    prioritySelector.name = 'priority';
+    prioritySelector.name = 'task-priority';
     priorityLabel.appendChild(prioritySelector);
     const low = document.createElement('option');
     low.textContent = 'Low';
